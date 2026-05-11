@@ -6,16 +6,31 @@
 // export const supabase = createClient(supabaseUrl, supabaseKey);
 
 
+// import { createClient } from "@supabase/supabase-js";
+
+// export function createClerkSupabaseClient(session) {
+//   return createClient(
+//     import.meta.env.VITE_SUPABASE_URL,
+//     import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+//     {
+//       accessToken: async () => {
+//         return session?.getToken() ?? null;
+//       },
+//     }
+//   );
+// }
+
 import { createClient } from "@supabase/supabase-js";
 
+export const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+
+export const supabasePublishableKey =
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
 export function createClerkSupabaseClient(session) {
-  return createClient(
-    import.meta.env.VITE_SUPABASE_URL,
-    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-    {
-      accessToken: async () => {
-        return session?.getToken() ?? null;
-      },
-    }
-  );
+  return createClient(supabaseUrl, supabasePublishableKey, {
+    accessToken: async () => {
+      return session?.getToken() ?? null;
+    },
+  });
 }

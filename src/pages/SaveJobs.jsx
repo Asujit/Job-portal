@@ -2,7 +2,7 @@ import React from 'react'
 
 const SavedJobs = () => {
   return (
-    <div>d</div>
+    <div>Saved Jobs</div>
   )
 }
 
