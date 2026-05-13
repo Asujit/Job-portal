@@ -35,7 +35,7 @@ export async function addNewCompany(
 
   if (storageError) {
     console.error(storageError);
-    throw new Error("Error uploading Company Logo");
+    throw new Error("Error uploading Company Logo", error);
   }
 
   const logo_url = `${supabaseUrl}/storage/v1/object/public/company-logo/${fileName}`;
@@ -52,7 +52,7 @@ export async function addNewCompany(
 
   if (error) {
     console.error(error);
-    throw new Error("Error submitting Companies");
+    throw new Error("Error submitting Companies", error);
   }
 
   return data;

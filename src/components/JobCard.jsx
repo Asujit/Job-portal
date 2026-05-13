@@ -33,8 +33,8 @@ const JobCard = ({
     loading: loadingSavedJob,
     data: savedJob,
     fn: fnSavedJob,
-  } = useFetch(saveJob,{
-    alreadySaved: saved
+  } = useFetch(saveJob, {
+    alreadySaved: saved,
   });
 
   const handleSaveJob = async () => {
@@ -60,8 +60,9 @@ const JobCard = ({
         <BarLoader className="mt-4" width={"100%"} color="#36d7b7" />
       )}
       <CardHeader className="flex">
-        <CardTitle className="flex justify-between font-bold">
-          {job.title}
+        <CardTitle className="flex items-center justify-between w-full font-bold">
+          <span>{job.title}</span>
+
           {isMyJob && (
             <Trash2Icon
               fill="red"
