@@ -1,5 +1,5 @@
 import { createClerkSupabaseClient } from "@/utils/Supabase";
-// import { supabaseUrl } from "@/utils/Supabase";
+import { supabaseUrl } from "@/utils/Supabase";
 
 // Fetch Companies
 export async function getCompanies(session) {
